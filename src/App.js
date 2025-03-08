@@ -58,8 +58,8 @@ const App = () => {
 
       {/* File Upload Areas */}
       <Grid item xs={6}>
-        <Typography variant="h6">File 1</Typography>
-        <FileUploadComponent onFileAccepted={(file) => handleFileUpload(file, setFile1, setParsedData1, setValidationResult1)} />
+      <Typography variant="h6">{file1 ? file1.name : "File 1"}</Typography>
+      <FileUploadComponent onFileAccepted={(file) => handleFileUpload(file, setFile1, setParsedData1, setValidationResult1)} />
         {file1 && !parsedData1 && <CircularProgress style={{ marginTop: '10px' }} />}
         {file1 && file1.name.endsWith('.csv') && (
           <CSVParserComponent file={file1} onParsed={(data) => handleParsedData(data, setParsedData1, setValidationResult1)} />
@@ -84,8 +84,8 @@ const App = () => {
       </Grid>
 
       <Grid item xs={6}>
-        <Typography variant="h6">File 2</Typography>
-        <FileUploadComponent onFileAccepted={(file) => handleFileUpload(file, setFile2, setParsedData2, setValidationResult2)} />
+      <Typography variant="h6">{file2 ? file2.name : "File 2"}</Typography>
+      <FileUploadComponent onFileAccepted={(file) => handleFileUpload(file, setFile2, setParsedData2, setValidationResult2)} />
         {file2 && !parsedData2 && <CircularProgress style={{ marginTop: '10px' }} />}
         {file2 && file2.name.endsWith('.csv') && (
           <CSVParserComponent file={file2} onParsed={(data) => handleParsedData(data, setParsedData2, setValidationResult2)} />
